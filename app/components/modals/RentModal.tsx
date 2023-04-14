@@ -67,6 +67,7 @@ const RentModal = () => {
       dynamic(() => import('../Map'), {
         ssr: false,
       }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [location],
   )
 
@@ -167,8 +168,8 @@ const RentModal = () => {
     bodyContent = (
       <div className="flex flex-col gap-8">
         <Heading
-          title="Share some basics about your place"
-          subtitle="What amenitis do you have?"
+          title="Share some basic information about your place"
+          subtitle="What amenities do you have?"
         />
         <Counter
           onChange={(value) => setCustomValue('guestCount', value)}
