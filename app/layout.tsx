@@ -13,26 +13,32 @@ export const metadata = {
   description: 'airbnb clone',
 }
 const font = Nunito({
+  display: 'swap',
   subsets: ['latin'],
+  variable: '--font-sans'
 })
 export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
-  }) {
+}) {
   const currentUser = await getCurrentUser()
   return (
     <html lang="en">
       <body className={font.className}>
         <ClientOnly>
           <ToasterProvider />
-          <RentModal/>
-          <LoginModal />
           <RegisterModal />
+          <LoginModal />
+          <RentModal />
           <Navbar currentUser={currentUser} />
         </ClientOnly>
-
-        {children}
+        <div
+          className="pb-20 pt-28
+        "
+        >
+          {children}
+        </div>
       </body>
     </html>
   )
