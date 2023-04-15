@@ -4,8 +4,6 @@ import { useRouter } from "next/navigation";
 import { useCallback, useMemo } from "react";
 import { toast } from "react-hot-toast";
 
-
-
 import useLoginModal from "./useLoginModal";
 
 interface IUseFavorite {
@@ -42,7 +40,7 @@ const useFavorite = ({ listingId, currentUser }: IUseFavorite) => {
 
       await request();
       router.refresh();
-      toast.success('Success');
+      // toast.success('Success');
     } catch (error) {
       toast.error('Something went wrong.');
     }

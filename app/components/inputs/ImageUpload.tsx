@@ -35,7 +35,8 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ onChange, value }) => {
       {({ open }) => {
         return (
           <div
-            onClick={() => open?.()}
+            // onClick={() => open?.()}
+            onClick={() => open && open()}
             className="relative cursor-pointer hover:opacity-70 transition border-dashed border-2 p-20 border-neutral-300 flex flex-col justify-center items-center gap-4 text-neutral-600"
           >
             <TbPhotoPlus size={50} />
@@ -47,6 +48,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ onChange, value }) => {
                   style={{ objectFit: 'cover' }}
                   src={value}
                   alt="House"
+                  sizes=" "
                 />
               </div>
             )}
