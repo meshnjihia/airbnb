@@ -9,16 +9,25 @@ import useRentModal from '@/app/hooks/useRentModal'
 
 import { signOut } from 'next-auth/react'
 import { SafeUser } from '@/types'
+import { useRouter } from 'next/navigation'
 
 interface UserMenuProps {
   currentUser?: SafeUser | null
 }
 
 const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
+  
   const [isOpen, setIsOpen] = useState(false)
   const toggleOpen = useCallback(() => {
+    
     setIsOpen((value) => !value)
   }, [])
+
+  const handleClose = useCallback(() => {
+    setIsOpen(false)
+  },[])
+
+  const router = useRouter()
   const registerModal = useRegisterModal()
   const loginModal = useLoginModal()
   const rentModal = useRentModal()
@@ -54,19 +63,19 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
           <div className="flex flex-col cursor-pointer">
             {currentUser ? (
               <>
-                <MenuItem onClick={() => {}} label="My trips" />
-                <MenuItem onClick={() => {}} label="My favorites" />
-                <MenuItem onClick={() => {}} label="My reservations" />
-                <MenuItem onClick={() => {}} label="My properties" />
-                <MenuItem onClick={rentModal.onOpen} label="Airbnb my home" />
+                <MenuItem onClose={handleClose} onClick={() => router.push('/trips')} label="My trips" />
+                <MenuItem onClose={handleClose}  onClick={() => {}} label="My favorites" />
+                <MenuItem onClose={handleClose}  onClick={() => {}} label="My reservations" />
+                <MenuItem onClose={handleClose}  onClick={() => {}} label="My properties" />
+                <MenuItem onClose={handleClose}  onClick={rentModal.onOpen} label="Airbnb my home" />
                 <hr />
-                <MenuItem onClick={() => signOut()} label="Logout" />
+                <MenuItem onClose={handleClose}  onClick={() => signOut()} label="Logout" />
               </>
             ) : (
               <>
-                <MenuItem onClick={loginModal.onOpen} label="Login" />
+                <MenuItem onClose={handleClose} onClick={loginModal.onOpen} label="Login" />
 
-                <MenuItem onClick={registerModal.onOpen} label="Sign up" />
+                <MenuItem onClose={handleClose}  onClick={registerModal.onOpen} label="Sign up" />
               </>
             )}
           </div>
