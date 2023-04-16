@@ -88,7 +88,7 @@ export default async function getListings(params: IListingsParams) {
     }))
 
     return safeListings
-  } catch (error) {
-    throw new Error
+  } catch (error: any) {
+    throw new Error(error.message)
   }
 }
