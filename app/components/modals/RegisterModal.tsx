@@ -35,7 +35,9 @@ const RegisterModal = () => {
     axios
       .post('/api/register', data)
       .then(() => {
+        // toast.success('successfully registered')
         registerModal.onClose()
+        loginModal.onOpen()
       })
       .catch((error) => {
         toast.error('something went wrong!')
@@ -46,11 +48,10 @@ const RegisterModal = () => {
       })
   }
 
-    const toggle = useCallback(() => {
+  const toggle = useCallback(() => {
     loginModal.onOpen()
     registerModal.onClose()
   }, [loginModal, registerModal])
-
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
@@ -103,9 +104,14 @@ const RegisterModal = () => {
         onClick={() => signIn('github')}
       />
       <div className="text-neutral-500 text-center mt-4 font-light">
-        <div className='flex flex-row items-center gap-2 justify-center'>
+        <div className="flex flex-row items-center gap-2 justify-center">
           <div> Already have an account?</div>
-          <div onClick={toggle} className='hover:underline text-neutral-800 cursor-pointer'>Log in</div>
+          <div
+            onClick={toggle}
+            className="hover:underline text-neutral-800 cursor-pointer"
+          >
+            Log in
+          </div>
         </div>
       </div>
     </div>
