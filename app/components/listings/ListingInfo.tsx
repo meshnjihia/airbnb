@@ -10,7 +10,7 @@ import useCountries from '@/app/hooks/useCountries';
 import Avatar from '../Avatar';
 import ListingCategory from './ListingCategory';
 
-const Map = dynamic(() => import('../Map'), {
+const Map = dynamic(() => import('@/app/components/Map'), {
   ssr: false
 })
 

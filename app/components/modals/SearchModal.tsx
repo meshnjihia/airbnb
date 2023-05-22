@@ -40,7 +40,7 @@ const SearchModal = () => {
     key: 'selection'
   });
 
-  const Map = useMemo(() => dynamic(() => import('../Map'), { 
+  const Map = useMemo(() => dynamic(() => import('@/app/components/Map'), { 
     ssr: false 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }), [location]);
