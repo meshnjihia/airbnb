@@ -64,14 +64,14 @@ const RentModal = () => {
   const bathroomCount = watch('bathroomCount')
   const imageSrc = watch('imageSrc')
 
-  const NewMap = useMemo(
-    () =>
-      dynamic(() => import('../Map'), {
-        ssr: false,
-      }),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [location],
-  )
+  // const NewMap = useMemo(
+  //   () =>
+  //     dynamic(() => import('../Map'), {
+  //       ssr: false,
+  //     }),
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  //   [location],
+  // )
 
   const setCustomValue = (id: string, value: any) => {
     setValue(id, value, {

@@ -42,10 +42,10 @@ const SearchModal = () => {
     key: 'selection'
   });
 
-  const NewMap = useMemo(() => dynamic(() => import('../Map'), { 
-    ssr: false 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }), [location]);
+  // const NewMap = useMemo(() => dynamic(() => import('../Map'), { 
+  //   ssr: false 
+  // // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }), [location]);
 
   const onBack = useCallback(() => {
     setStep((value) => value - 1);
