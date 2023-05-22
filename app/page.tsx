@@ -6,13 +6,25 @@ import getListings, { IListingsParams } from "@/app/actions/getListings";
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import ClientOnly from "./components/ClientOnly";
 
- interface HomeProps {
+interface HomeProps {
   searchParams: IListingsParams;
-  listings: any[];
-  currentUser: any;
 }
 
-const Home = ({ searchParams, listings, currentUser }: HomeProps) => {
+const Home = ({ searchParams }: HomeProps) => {
+  const [listings, setListings] = React.useState<any[]>([]);
+  const [currentUser, setCurrentUser] = React.useState<any>(null);
+
+  React.useEffect(() => {
+    const fetchData = async () => {
+      const listingsData = await getListings(searchParams);
+      const currentUserData = await getCurrentUser();
+      setListings(listingsData);
+      setCurrentUser(currentUserData);
+    };
+
+    fetchData();
+  }, [searchParams]);
+
   if (listings.length === 0) {
     return (
       <ClientOnly>
@@ -38,11 +50,27 @@ const Home = ({ searchParams, listings, currentUser }: HomeProps) => {
   );
 };
 
-Home.getInitialProps = async ({ query }: { query: IListingsParams }) => {
+export async function getStaticProps() {
+  const query: IListingsParams = {}; // Add your desired query parameters here
   const listings = await getListings(query);
   const currentUser = await getCurrentUser();
-  return { searchParams: query, listings, currentUser };
-};
+
+  return {
+    props: {
+      searchParams: query,
+      listings,
+      currentUser,
+    },
+  };
+}
 
 export default Home;
+
+// Home.getInitialProps = async ({ query }: { query: IListingsParams }) => {
+//   const listings = await getListings(query);
+//   const currentUser = await getCurrentUser();
+//   return { searchParams: query, listings, currentUser };
+// };
+
+// export default Home;
 
