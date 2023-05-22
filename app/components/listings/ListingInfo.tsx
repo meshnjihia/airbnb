@@ -10,7 +10,7 @@ import useCountries from '@/app/hooks/useCountries';
 import Avatar from '../Avatar';
 import ListingCategory from './ListingCategory';
 
-import MapLocation from '../Map';
+import MapLocation from '../MapLocation';
 
 // const NewMap = dynamic(() => import('../Map'), {
 //   ssr: false

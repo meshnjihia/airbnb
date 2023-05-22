@@ -16,8 +16,8 @@ import CountrySelect, {
   CountrySelectValue
 } from "../inputs/CountrySelect";
 import Heading from '../Heading';
-import Map from '../Map';
-import MapLocation from '../Map';
+// import Map from '../Map';
+import MapLocation from '../MapLocation';
 
 enum STEPS {
   LOCATION = 0,

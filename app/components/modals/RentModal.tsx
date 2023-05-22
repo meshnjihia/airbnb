@@ -17,8 +17,8 @@ import { categories } from '../navbar/Categories'
 import ImageUpload from '../inputs/ImageUpload'
 import Input from '../inputs/Input'
 import Heading from '../Heading'
-import Map from '../Map';
-import MapLocation from '../Map'
+// import Map from '../Map';
+import MapLocation from '../MapLocation'
 
 enum STEPS {
   CATEGORY = 0,
