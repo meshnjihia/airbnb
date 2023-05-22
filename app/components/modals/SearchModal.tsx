@@ -17,6 +17,7 @@ import CountrySelect, {
 } from "../inputs/CountrySelect";
 import Heading from '../Heading';
 import Map from '../Map';
+import MapLocation from '../Map';
 
 enum STEPS {
   LOCATION = 0,
@@ -131,7 +132,7 @@ const SearchModal = () => {
           setLocation(value as CountrySelectValue)} 
       />
       <hr />
-      <Map center={location?.latlng} />
+      <MapLocation center={location?.latlng} />
     </div>
   )
 

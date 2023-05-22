@@ -18,6 +18,7 @@ import ImageUpload from '../inputs/ImageUpload'
 import Input from '../inputs/Input'
 import Heading from '../Heading'
 import Map from '../Map';
+import MapLocation from '../Map'
 
 enum STEPS {
   CATEGORY = 0,
@@ -160,7 +161,7 @@ const RentModal = () => {
           value={location}
           onChange={(value) => setCustomValue('location', value)}
         />
-        <Map center={location?.latlng} />
+        <MapLocation center={location?.latlng} />
       </div>
     )
   }

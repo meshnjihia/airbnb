@@ -10,6 +10,7 @@ import useCountries from '@/app/hooks/useCountries';
 import Avatar from '../Avatar';
 import ListingCategory from './ListingCategory';
 import Map from '../Map';
+import MapLocation from '../Map';
 
 const NewMap = dynamic(() => import('../Map'), {
   ssr: false
@@ -74,7 +75,7 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
         {description}
       </div>
       <hr />
-      <Map center={coordinates}/>
+      <MapLocation center={coordinates}/>
     </div>
   )
 }
