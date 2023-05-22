@@ -9,8 +9,9 @@ import useCountries from '@/app/hooks/useCountries';
 
 import Avatar from '../Avatar';
 import ListingCategory from './ListingCategory';
+import Map from '../Map';
 
-const Map = dynamic(() => import('../Map'), {
+const NewMap = dynamic(() => import('../Map'), {
   ssr: false
 })
 

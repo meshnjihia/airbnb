@@ -16,6 +16,7 @@ import CountrySelect, {
   CountrySelectValue
 } from "../inputs/CountrySelect";
 import Heading from '../Heading';
+import Map from '../Map';
 
 enum STEPS {
   LOCATION = 0,
@@ -40,7 +41,7 @@ const SearchModal = () => {
     key: 'selection'
   });
 
-  const Map = useMemo(() => dynamic(() => import('../Map'), { 
+  const NewMap = useMemo(() => dynamic(() => import('../Map'), { 
     ssr: false 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }), [location]);
