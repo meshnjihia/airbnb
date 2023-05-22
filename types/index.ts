@@ -22,3 +22,20 @@ export type SafeUser = Omit<
   updatedAt: string;
   emailVerified: string | null;
 };
+// types.ts
+export interface HomeProps {
+  searchParams: IListingsParams;
+  listings: any[];
+  currentUser: any;
+}
+
+export interface IListingsParams {
+  userId?: string;
+  guestCount?: number;
+  roomCount?: number;
+  bathroomCount?: number;
+  startDate?: string;
+  endDate?: string;
+  locationValue?: string;
+  category?: string;
+}

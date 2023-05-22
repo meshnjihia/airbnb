@@ -2,17 +2,19 @@ import Container from "@/app/components/Container";
 import ListingCard from "@/app/components/listings/ListingCard";
 import EmptyState from "@/app/components/EmptyState";
 
+
+
 import getListings, { IListingsParams } from "@/app/actions/getListings";
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import ClientOnly from "./components/ClientOnly";
 
-type HomeProps = {
-  searchParams: IListingsParams;
+interface HomeProps {
+
   listings: any[];
   currentUser: any;
 };
 
-const Home = ({ searchParams, listings, currentUser }: HomeProps) => {
+const Home = ({ listings, currentUser }: HomeProps) => {
   if (listings.length === 0) {
     return (
       <ClientOnly>
