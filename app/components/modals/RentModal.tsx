@@ -18,7 +18,7 @@ import ImageUpload from '../inputs/ImageUpload'
 import Input from '../inputs/Input'
 import Heading from '../Heading'
 // import Map from '../Map';
-import MapLocation from '../MapLocation'
+// import MapLocation from '../MapLocation'
 
 enum STEPS {
   CATEGORY = 0,
@@ -64,14 +64,14 @@ const RentModal = () => {
   const bathroomCount = watch('bathroomCount')
   const imageSrc = watch('imageSrc')
 
-  // const NewMap = useMemo(
-  //   () =>
-  //     dynamic(() => import('../Map'), {
-  //       ssr: false,
-  //     }),
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  //   [location],
-  // )
+  const NewMap = useMemo(
+    () =>
+      dynamic(() => import('../MapLocation'), {
+        ssr: false,
+      }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [location],
+  )
 
   const setCustomValue = (id: string, value: any) => {
     setValue(id, value, {
@@ -161,7 +161,7 @@ const RentModal = () => {
           value={location}
           onChange={(value) => setCustomValue('location', value)}
         />
-        <MapLocation center={location?.latlng} />
+        <NewMap center={location?.latlng} />
       </div>
     )
   }

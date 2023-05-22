@@ -17,7 +17,7 @@ import CountrySelect, {
 } from "../inputs/CountrySelect";
 import Heading from '../Heading';
 // import Map from '../Map';
-import MapLocation from '../MapLocation';
+// import MapLocation from '../MapLocation';
 
 enum STEPS {
   LOCATION = 0,
@@ -42,10 +42,10 @@ const SearchModal = () => {
     key: 'selection'
   });
 
-  // const NewMap = useMemo(() => dynamic(() => import('../Map'), { 
-  //   ssr: false 
-  // // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }), [location]);
+  const NewMap = useMemo(() => dynamic(() => import('../MapLocation'), { 
+    ssr: false 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }), [location]);
 
   const onBack = useCallback(() => {
     setStep((value) => value - 1);
@@ -132,7 +132,7 @@ const SearchModal = () => {
           setLocation(value as CountrySelectValue)} 
       />
       <hr />
-      <MapLocation center={location?.latlng} />
+      <NewMap center={location?.latlng} />
     </div>
   )
 

@@ -10,11 +10,11 @@ import useCountries from '@/app/hooks/useCountries';
 import Avatar from '../Avatar';
 import ListingCategory from './ListingCategory';
 
-import MapLocation from '../MapLocation';
+// import MapLocation from '../MapLocation';
 
-// const NewMap = dynamic(() => import('../Map'), {
-//   ssr: false
-// })
+const NewMap = dynamic(() => import('../MapLocation'), {
+  ssr: false
+})
 
 interface ListingInfoProps{
   user: SafeUser;
@@ -75,7 +75,7 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
         {description}
       </div>
       <hr />
-      <MapLocation center={coordinates}/>
+      <NewMap center={coordinates}/>
     </div>
   )
 }
