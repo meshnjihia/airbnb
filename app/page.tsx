@@ -39,7 +39,7 @@ const Home = ({ searchParams, listings, currentUser }: HomeProps) => {
 };
 
 export async function getStaticProps() {
-  const query: IListingsParams = {}; // Add your desired query parameters here
+  const query: IListingsParams = {}; // 
   const listings = await getListings(query);
   const currentUser = await getCurrentUser();
 
